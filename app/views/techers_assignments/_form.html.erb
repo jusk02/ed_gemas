@@ -11,15 +11,15 @@
     </div>
   <% end %>
 
-  <div class="field">
+ <div class="field">
     <%= f.label :teacher_id %><br>
-    <%= f.number_field :teacher_id %>
+    <%= f.select :teacher_id, Teacher.all.collect{|u|[u.name + " " + u.lastname, u.id]} %><br>
   </div>
   <div class="field">
     <%= f.label :assignment_id %><br>
-    <%= f.number_field :assignment_id %>
+    <%= f.select :assignment_id, Assignment.all.collect{|u|[u.name, u.id]} %><br>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "tomar materia", :url => root_path %>
   </div>
 <% end %>

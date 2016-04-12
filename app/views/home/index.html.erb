@@ -5,24 +5,62 @@
 	<% if teacher_signed_in? %>
 		<div class="container text-center">
 	
-			<div class="col-sm-6 col-md-6 text-center">
+			
 				<h1>hola <%= current_teacher.name %></h1>
 				
 				<%= link_to('Cerrar sesion' , destroy_teacher_session_path, :method => :delete) %>
+
+				<div>
+					<p id="notice"><%= notice %></p>
+
+						<p>
+						  <strong>Name:</strong>
+						  <%= current_teacher.name %>
+						</p>
+
+						<p>
+						  <strong>Lastname:</strong>
+						  <%= current_teacher.lastname %>
+						</p>
+
+						<p>
+						  <strong>Cc:</strong>
+						  <%= current_teacher.dni %>
+						</p>
+
+						<p>
+						  <strong>Email:</strong>
+						  <%= current_teacher.email %>
+						</p>
+						<h2>Materias que esta dictando:</h2>
+						<% current_teacher.assignments.each do |assignment| %>
+							<li>
+							 <%= assignment.name%>
+							 <%= link_to 'Mostrar', assignment %>
+							 
+							
+							</li>
+							<% end %>
+
+					<%= button_to "tomar materia", new_techers_assignment_path, :id => "tomar-materia", :class => "inbox-sf-add-btn tip", :method => :get %>
+
+				</div>
+
+				
 				
 
-			</div>
+			
 		</div>
 
 	<%elsif student_signed_in?	%>
 		<div class="container text-center">
 	
-			<div class="col-sm-6 col-md-6 text-center">
+			
 				<h1>hola</h1>
 				<%= current_student.email %>
 				<%= link_to('Cerrar sesion' , destroy_student_session_path, :method => :delete) %>
 				
-			</div>
+			
 		</div>
 <%end%>
 

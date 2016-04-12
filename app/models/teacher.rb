@@ -7,8 +7,8 @@ class Teacher < ActiveRecord::Base
 enum role: [ :student, :teacher, :admin ]
 
 
-has_many :teachers_assignments
-has_many :assignments, through: :teachers_assignments
+has_many :techers_assignments
+has_many :assignments, through: :techers_assignments
 
 before_create :define_role
 

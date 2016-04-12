@@ -2,13 +2,13 @@
 
 <p>
   <strong>Teacher:</strong>
-  <%= @techers_assignment.teacher_id %>
+  <%= @techers_assignment.teacher.name %>
 </p>
-
+<p>tomo la materia:</p>
 <p>
   <strong>Assignment:</strong>
-  <%= @techers_assignment.assignment_id %>
+  <%= @techers_assignment.assignment.name %>
 </p>
 
 <%= link_to 'Edit', edit_techers_assignment_path(@techers_assignment) %> |
-<%= link_to 'Back', techers_assignments_path %>
+<%= link_to 'Back', root_path %>
