@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  message: MyString
+  grade: 1
+  homework_id: 1
+
+two:
+  message: MyString
+  grade: 1
+  homework_id: 1

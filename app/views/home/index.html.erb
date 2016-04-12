@@ -1,0 +1,33 @@
+
+
+<% if signed_in? %>
+
+	<% if teacher_signed_in? %>
+		<div class="container text-center">
+	
+			<div class="col-sm-6 col-md-6 text-center">
+				<h1>hola <%= current_teacher.name %></h1>
+				
+				<%= link_to('Cerrar sesion' , destroy_teacher_session_path, :method => :delete) %>
+				
+
+			</div>
+		</div>
+
+	<%elsif student_signed_in?	%>
+		<div class="container text-center">
+	
+			<div class="col-sm-6 col-md-6 text-center">
+				<h1>hola</h1>
+				<%= current_student.email %>
+				<%= link_to('Cerrar sesion' , destroy_student_session_path, :method => :delete) %>
+				
+			</div>
+		</div>
+<%end%>
+
+
+<% else %>
+<%= render "teachers/shared/log" %>
+
+<%end%>

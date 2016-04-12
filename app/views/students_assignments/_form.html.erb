@@ -1,0 +1,26 @@
+<%= form_for(@students_assignment) do |f| %>
+  <% if @students_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@students_assignment.errors.count, "error") %> prohibited this students_assignment from being saved:</h2>
+
+      <ul>
+      <% @students_assignment.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :estudiante %><br>
+    <%= f.select :student_id, Student.all.collect{|u|[u.name + " "+ u.lastname, u.id]} %><br>
+  </div>
+  <div class="field">
+    <%= f.label :materia%><br>
+    <%= f.select :assignment_id, Assignment.all.collect{|u|[u.name, u.id]} %><br>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

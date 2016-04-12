@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Techers Assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Teacher</th>
+      <th>Assignment</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @techers_assignments.each do |techers_assignment| %>
+      <tr>
+        <td><%= techers_assignment.teacher_id %></td>
+        <td><%= techers_assignment.assignment_id %></td>
+        <td><%= link_to 'Show', techers_assignment %></td>
+        <td><%= link_to 'Edit', edit_techers_assignment_path(techers_assignment) %></td>
+        <td><%= link_to 'Destroy', techers_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Techers assignment', new_techers_assignment_path %>
