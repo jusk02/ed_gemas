@@ -10,5 +10,21 @@
   <%= @assignment.code %>
 </p>
 
+<h2>estudiantes matriculados en este curso:</h2>
+	<% @assignment.students.each do |student| %>
+	<li>
+	<%= student.name%>
+	<%= link_to 'Mostrar', student %>				
+	</li>
+	<% end %>
+
+<h2>profesores que dicatan este curso:</h2>
+	<% @assignment.teachers.each do |teacher| %>
+	<li>
+	<%= teacher.name%>
+					
+	</li>
+	<% end %>
+
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Back', assignments_path %>
+<%= link_to 'Lista de materias', assignments_path %>
