@@ -14,6 +14,7 @@
   <div class="field">
     <%= f.label :estudiante %><br>
     <%= f.select :student_id, Student.all.collect{|u|[u.name + " "+ u.lastname, u.id]} %><br>
+    
   </div>
   <div class="field">
     <%= f.label :materia%><br>
