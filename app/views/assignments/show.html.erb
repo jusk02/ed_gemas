@@ -18,13 +18,19 @@
 	</li>
 	<% end %>
 
-<h2>profesores que dicatan este curso:</h2>
-	<% @assignment.teachers.each do |teacher| %>
+<h2>tareas de este curso este curso:</h2>
+	<% @assignment.homeworks.each do |homework| %>
 	<li>
-	<%= teacher.name%>
+	<%= homework.message%>
+	<%= homework.id%>
 					
 	</li>
 	<% end %>
+	<% if teacher_signed_in? %>
+	<%= button_to "crear tarea", new_assignment_homework_path(@assignment), :id => "crear tarea", :class => "inbox-sf-add-btn tip", :method => :get %>
+	<%= link_to 'Edit', new_assignment_homework_path(@assignment) %> |
+
+ 	<% end %>
 
 <%= link_to 'Edit', edit_assignment_path(@assignment) %> |
 <%= link_to 'Lista de materias', assignments_path %>

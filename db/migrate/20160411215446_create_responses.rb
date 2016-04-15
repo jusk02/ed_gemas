@@ -4,6 +4,7 @@ class CreateResponses < ActiveRecord::Migration
       t.string :message
       t.integer :grade
       t.integer :homework_id
+      t.integer :student_id
 
       t.timestamps null: false
     end

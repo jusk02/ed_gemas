@@ -1,4 +1,4 @@
-<%= form_for(@homework) do |f| %>
+<%= form_for([@homework.assignment, @homework]) do |f| %>
   <% if @homework.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@homework.errors.count, "error") %> prohibited this homework from being saved:</h2>
@@ -20,8 +20,11 @@
     <%= f.datetime_select :final_date %>
   </div>
   <div class="field">
+   
+
     <%= f.label :assignment_id %><br>
-    <%= f.number_field :assignment_id %>
+    <%= f.select :assignment_id, Assignment.all.collect{|u|[u.name, u.id]} %><br>
+  
   </div>
   <div class="actions">
     <%= f.submit %>

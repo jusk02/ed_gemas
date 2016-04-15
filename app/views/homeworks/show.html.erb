@@ -15,5 +15,5 @@
   <%= @homework.assignment_id %>
 </p>
 
-<%= link_to 'Edit', edit_homework_path(@homework) %> |
-<%= link_to 'Back', homeworks_path %>
+<%= link_to 'Edit', edit_assignment_homework_path(@homework.assignment , @homework) %> |
+<%= link_to 'Back', assignment_path(@homework.assignment) %>

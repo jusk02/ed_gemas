@@ -12,8 +12,11 @@ class Ability
         can :manage, Response, :user_id => user.id
         
     elsif user.teacher?
-            can :destroy, Comment
-        end
+            can :create, Homework
+            can :manage, Homework, :user_id => user.id
+            can :read, :all
+            can :manage, Response, :user_id => user.id
+       
     end
     
     # The first argument to `can` is the action you are giving the user
