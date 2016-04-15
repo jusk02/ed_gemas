@@ -2,13 +2,13 @@
 
 <p>
   <strong>Student:</strong>
-  <%= @students_assignment.student_id %>
+  <%= @students_assignment.student.name %>
 </p>
 
 <p>
   <strong>Assignment:</strong>
-  <%= @students_assignment.assignment_id %>
+  <%= @students_assignment.assignment.name %>
 </p>
 
-<%= link_to 'Edit', edit_students_assignment_path(@students_assignment) %> |
-<%= link_to 'Back', students_assignments_path %>
+|
+<%= link_to 'Back', root_path %>

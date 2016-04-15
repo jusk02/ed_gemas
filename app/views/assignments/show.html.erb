@@ -14,23 +14,46 @@
 	<% @assignment.students.each do |student| %>
 	<li>
 	<%= student.name%>
-	<%= link_to 'Mostrar', student %>				
+				
 	</li>
 	<% end %>
+
+
 
 <h2>tareas de este curso este curso:</h2>
-	<% @assignment.homeworks.each do |homework| %>
-	<li>
-	<%= homework.message%>
-	<%= homework.id%>
-					
-	</li>
-	<% end %>
+<table>
+  <thead>
+	    <tr>
+	      <th>Mensaje</th>
+	    </tr>
+	</thead>
+	<tbody>
+	    <% @assignment.homeworks.each do |homework| %>
+	    <tr>
+	 	   <td><%= homework.message%></td>
+	       <td><%if student_signed_in?	%>
+			    <%= button_to "responder tarea", new_response_path(@homework), :id => "responder tarea", :class => "inbox-sf-add-btn tip", :method => :get %>
+				<% end %>
+			</td>  
+			<td><%if teacher_signed_in?	%>
+			   <%= link_to 'Show', [homework.assignment, homework] %>   
+				<% end %>
+			</td>    
+	    </tr>
+	    <% end %>
+	</tbody>
+</table>
+
+
+	
+	
+	<br>
+	<br>
 	<% if teacher_signed_in? %>
 	<%= button_to "crear tarea", new_assignment_homework_path(@assignment), :id => "crear tarea", :class => "inbox-sf-add-btn tip", :method => :get %>
-	<%= link_to 'Edit', new_assignment_homework_path(@assignment) %> |
+	
 
  	<% end %>
+ 	<br>
 
-<%= link_to 'Edit', edit_assignment_path(@assignment) %> |
-<%= link_to 'Lista de materias', assignments_path %>
+<%= link_to 'Back', root_path %>
