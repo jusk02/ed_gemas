@@ -47,12 +47,21 @@
 		<%= link_to('Cerrar sesion' , destroy_student_session_path, :method => :delete) %>
 
 		<div>
+			<%= @student=current_student %>
 			<p id="notice"><%= notice %></p>
 
 			<p>
 			<strong>Name:</strong>
 			<%= current_student.name %>
 			</p>
+
+			<p>
+			<strong>Name:</strong>
+			<%= current_student.avatar %>
+			<%= image_tag("current_student.avatar") %>
+			
+			</p>
+
 
 			<p>
 	    	<strong>Lastname:</strong>

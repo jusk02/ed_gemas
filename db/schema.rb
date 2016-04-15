@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160412204848) do
     t.string   "lastname"
     t.integer  "dni"
     t.string   "role"
+    t.string   "avatar"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end
@@ -81,6 +82,7 @@ ActiveRecord::Schema.define(version: 20160412204848) do
     t.string   "lastname"
     t.integer  "dni"
     t.string   "role"
+    t.string   "avatar"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
   end

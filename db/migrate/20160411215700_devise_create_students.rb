@@ -33,6 +33,7 @@ class DeviseCreateStudents < ActiveRecord::Migration
       t.string :lastname
       t.integer :dni
       t.string :role
+      t.string :avatar
 
       t.timestamps null: false
     end

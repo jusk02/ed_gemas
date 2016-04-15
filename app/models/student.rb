@@ -4,6 +4,8 @@ class Student < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+mount_uploader :avatar, AvatarUploader
+
          enum role: [ :student, :teacher, :admin ]
 
 has_many :students_assignments
